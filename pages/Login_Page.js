@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test'
 
-class LoginPage {
+export class LoginPage {
 
     constructor(page) {
         this.page = page;
@@ -16,8 +16,5 @@ class LoginPage {
         await this.userName.fill('pavanol');
         await this.passWord.fill('test@123');
         await this.loginButton.click();
-
     }
-
-
 }
