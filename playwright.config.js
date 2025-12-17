@@ -16,6 +16,12 @@ export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
+
+
+  // Output directory for test artifacts
+  outputDir: 'test-results/',
+
+
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
@@ -31,6 +37,34 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+
+
+    // Run tests in headless mode
+    headless: true,
+
+    // Set viewport size
+    viewport: { width: 1280, height: 720 },
+
+    // Ignore HTTPS errors
+    ignoreHTTPSErrors: true,
+
+    // Take screenshot only on failure
+    //screenshot: 'only-on-failure',
+
+    // Record video only when test fails
+    //video: 'retain-on-failure',
+
+    // Set default navigation timeout
+    navigationTimeout: 20000, // 20 seconds
+
+    // Set default action timeout
+    actionTimeout: 30000, // 30 seconds
+
+    // Base URL for all tests
+    baseURL: 'https://demoblaze.com/',
+  
+
+
   },
 
   /* Configure projects for major browsers */
@@ -40,15 +74,15 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     /* Test against mobile viewports. */
     // {

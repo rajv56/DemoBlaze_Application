@@ -1,7 +1,4 @@
-
-
 import { test, expect } from '@playwright/test';
-import {doLogin}  
 
 test("login", async ({ page }) => {
     //below code will be in home page
@@ -34,9 +31,6 @@ test('codegen test', async ({ page }) => {
     await page.getByRole('button', { name: 'Log in' }).click();
 });
 
-
-//card-title
-
 test('Verify the list of mobiles', async ({ page }) => {
     await page.goto('https://demoblaze.com/');
     await expect(page.locator('#tbodyid')).toBeVisible();
@@ -48,9 +42,7 @@ test('Verify the list of mobiles', async ({ page }) => {
     }
 })
 
-
-
-test.only('Verify the [description] of mobiles', async ({ page }) => {
+test('Verify the [description] of mobiles', async ({ page }) => {
     await page.goto('https://demoblaze.com/');
     console.log("Web page is opened");
     await expect(page.locator('#tbodyid')).toBeVisible();
