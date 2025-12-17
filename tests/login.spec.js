@@ -48,7 +48,7 @@ test('Verify the list of mobiles', async ({ page }) => {
 
 
 
-test.only('Verify the [description] of mobiles', async ({ page }) => {
+test('Verify the [description] of mobiles', async ({ page }) => {
     await page.goto('https://demoblaze.com/');
     console.log("Web page is opened");
     await expect(page.locator('#tbodyid')).toBeVisible();
