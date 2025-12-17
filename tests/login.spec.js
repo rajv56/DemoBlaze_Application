@@ -1,22 +1,20 @@
 
 
 import { test, expect } from '@playwright/test';
-import {doLogin}  
-
+import { LoginPage }  from '../pages/Login_Page'
 test("login", async ({ page }) => {
     //below code will be in home page
     await page.goto("https://demoblaze.com/");
     console.log("Web page is opened");
     await page.locator('#login2').click();
+
     
-    //below code will be in login page
+        //below code will be in login page
     console.log("Login page is opened");
-    await expect(page.locator('#logInModalLabel')).toBeVisible();
-    await page.locator('#loginusername').fill('pavanol');
-    await page.locator('#loginpassword').fill('test@123');
-    await page.locator(`onclick=logIn`).click();
-    
-    
+
+    //create an object to get access
+    const loginPageObject = new LoginPage(page);
+    await loginPageObject.doLogin();
     console.log("Login succesfully ");
 });
 
@@ -50,7 +48,7 @@ test('Verify the list of mobiles', async ({ page }) => {
 
 
 
-test.only('Verify the [description] of mobiles', async ({ page }) => {
+test('Verify the [description] of mobiles', async ({ page }) => {
     await page.goto('https://demoblaze.com/');
     console.log("Web page is opened");
     await expect(page.locator('#tbodyid')).toBeVisible();
