@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('Verify the list of mobiles', async ({ page }) => {
+    
     await page.goto('https://demoblaze.com/');
     await expect(page.locator('#tbodyid')).toBeVisible();
     await page.waitForSelector('.card-title a');
